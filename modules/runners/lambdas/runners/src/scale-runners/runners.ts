@@ -122,6 +122,7 @@ export async function createRunner(runnerParameters: RunnerInputParameters): Pro
       .runInstances(instanceParams, 
         async function(err, data) {
           if (err) {
+            console.info(err)
             instanceParams.InstanceType = process.env.SECONDARY_INSTANCE_TYPE as string;
             return await ec2.runInstances(instanceParams)
           }
